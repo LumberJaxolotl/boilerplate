@@ -35,20 +35,21 @@
     
     <!-- choice of tailwind or watercss -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.twind.style" crossorigin></script>
 
     <!-- alpine.js + alpine.js persistence plugin -->
-    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- alpine.js app boilerplate -->
     <script defer>
         document.addEventListener('alpine:init', () => {
-            Alpine.data('PageData', () => ({
+            Alpine.data('PageData', function(){return({
                 // reactive values
                 pageViews: 0,
                 // sync reactive value with local storage
                 // idk if this actually works tho. See https://alpinejs.dev/plugins/persist#using-persist-with-alpine-data. 
-                clicksCounted: Alpine.$persist(0),  
+                clicksCounted: this.$persist(0),  
                 // Computed Properties
                 get valuesPlusOne(){
                   return this.pageViews + 1
@@ -57,7 +58,7 @@
                 onButtonClick(){
                   alert("Button clicked!")
                 }
-            }))
+            })})
         });
     </script>
     
@@ -72,7 +73,8 @@
     <!-- Add your site or application content here --> 
     <main class="max-w-fit md:max-w-96 h-fit grid grid-cols-1">
         <h1 class="font-bold text-5xl mb-3">Hello world!</h1>
-        <p>This is HTML5 + tailwind + Alpine.js Boilerplate speaking.</p>
+        <p>This is HTML5 + Alpine.js + Tailwindcss + DaisyUI Boilerplate speaking.</p>
+        
     </main>
 
     <!-- js if required -->
