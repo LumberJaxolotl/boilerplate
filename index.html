@@ -46,6 +46,9 @@
             Alpine.data('PageData', () => ({
                 // reactive values
                 pageViews: 0,
+                // sync reactive value with local storage
+                // idk if this actually works tho. See https://alpinejs.dev/plugins/persist#using-persist-with-alpine-data. 
+                clicksCounted: Alpine.$persist(0),  
                 // Computed Properties
                 get valuesPlusOne(){
                   return this.pageViews + 1
@@ -69,7 +72,7 @@
     <!-- Add your site or application content here --> 
     <main class="max-w-fit md:max-w-96 h-fit grid grid-cols-1">
         <h1 class="font-bold text-5xl mb-3">Hello world!</h1>
-        <p>This is HTML5 + tailwind Boilerplate <br> speaking.</p>
+        <p>This is HTML5 + tailwind + Alpine.js Boilerplate speaking.</p>
     </main>
 
     <!-- js if required -->
