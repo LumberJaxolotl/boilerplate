@@ -14,31 +14,59 @@
     <link rel="favicon" href="favicon.svg">
 
     <!-- OpenGraph Properties -->
+    <meta property="og:site_name" content="IMBD" />
     <meta property="og:title" content="The Rock" />
+    <meta property="og:description" content="" />
     <meta property="og:type" content="video.movie" />
     <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
     <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_CA" />
+    <!-- OG object types: website, music, video, articule, book, payment, profile   -->
     <!-- OpenGraph Properties END -->
 
     <link rel="manifest" href="site.webmanifest">
+
     <meta name="theme-color" content="#fafafa">
 
     <link rel="stylesheet" href="css/index.css">
     
-    <!-- classless css framework that makes the browser default styles sexier -->
+    <!-- choice of tailwind or watercss -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"> -->
+    <script src="https://cdn.twind.style" crossorigin></script>
+
+    <!-- alpine.js + alpine.js persistence plugin -->
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- alpine.js app boilerplate -->
+    <script defer>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('PageData', () => ({
+                // reactive values
+                pageViews: 0,
+                // Computed Properties
+                get valuesPlusOne(){
+                  return this.pageViews + 1
+                },
+                // methods
+                onButtonClick(){
+                  alert("Button clicked!")
+                }
+            }))
+        });
+    </script>
     
-    <!-- tailwind (non-optimized version) -->
-    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
-<body class="grid justify-center min-h-screen px-5">
+<body class="grid justify-center min-h-screen px-5" x-data="PageData">
     <!--[if IE]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <!-- Add your site or application content here --> 
     <main class="max-w-fit md:max-w-96 h-fit grid grid-cols-1">
         <h1 class="font-bold text-5xl mb-3">Hello world!</h1>
         <p>This is HTML5 + tailwind Boilerplate <br> speaking.</p>
