@@ -33,9 +33,10 @@
 
     <link rel="stylesheet" href="css/index.css">
     
-    <!-- choice of tailwind or watercss -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- choice of Twind or Tailwind + DaisyUI -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" /> -->
+    <!-- Twind is a more-performant version of the tailwind play CDN - https://twind.dev/ -->
     <script src="https://cdn.twind.style" crossorigin></script>
 
     <!-- alpine.js + alpine.js persistence plugin -->
@@ -65,16 +66,15 @@
 
 </head>
 
-<body class="grid justify-center min-h-screen px-5" x-data="PageData">
-    <!--[if IE]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
+<!-- For flow from top of page -->
+<!-- <body class="grid justify-center min-h-screen px-5" x-data="PageData"> -->
+
+<body class="grid place-items-center min-h-screen px-5" x-data="PageData">
 
     <!-- Add your site or application content here --> 
     <main class="max-w-fit md:max-w-96 h-fit grid grid-cols-1">
-        <h1 class="font-bold text-5xl mb-3">Hello world!</h1>
-        <p>This is HTML5 + Alpine.js + Tailwindcss + DaisyUI Boilerplate speaking.</p>
-        
+        <h1 class="font-bold text-5xl mb-3" x-text="'Hello World!'"></h1>
+        <p>This is HTML5 + Alpine.js + Tailwindcss Boilerplate speaking.</p>
     </main>
 
     <!-- js if required -->
